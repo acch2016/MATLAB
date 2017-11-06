@@ -149,29 +149,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% fo=1000;
+% T=1/fo;
+% w=2*pi*fo;
+% 
+% N=100;%puntos
+% dt=T/N;
+% t=0:dt:2*T;
+% 
+% suma=0;
+% B=0;
+% 
+% for i=1:15 %rango de iteracion
+%     
+%    if mod(i,2) == 0
+%        
+%    A=0;
+% 
+%    else
+%     
+%    A = ( 2*(1/(i*pi)) )*( (-1)^((i-1)/2) );    
+%    
+%    end
+%    
+%    s=(B*sin(i*w*t))+(A*cos(i*w*t));
+%    suma=s+suma;
+%    
+% end
+% 
+% figure;plot(t,suma)
+% axis([0 2*T -1.1 1.1]);
+% xlabel('tiempo t');
+% ylabel('Amplitud de x(t)');
+% title('Señal x(t)');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%b)
+
 fo=1000;
 T=1/fo;
 w=2*pi*fo;
 
 N=100;%puntos
 dt=T/N;
-t=0:dt:2*T;
+t=0:dt:1;
 
 suma=0;
-B=0;
+A=0;
 
-for i=1:15 %rango de iteracion
+for i=1:10 %rango de iteración
     
-   if mod(i,2) == 0
-       
-   A=0;
+   B =( -2*( 1/(i*pi) )*( (-1)^i ) ) ;
 
-   else
-    
-   A = ( 2*(1/(i*pi)) )*( (-1)^((i-1)/2) );    
-   
-   end
-   
    s=(B*sin(i*w*t))+(A*cos(i*w*t));
    suma=s+suma;
    
@@ -183,38 +214,7 @@ xlabel('tiempo t');
 ylabel('Amplitud de x(t)');
 title('Señal x(t)');
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%b)
-
-% fo=1000;
-% T=1/fo;
-% w=2*pi*fo;
-% 
-% N=100;%puntos
-% dt=T/N;
-% t=0:dt:1;
-% 
-% suma=0;
-% A=0;
-% 
-% for i=1:5 %rango de iteración
-%     
-%    B =( -2*( 1/(i*pi) )*( (-1)^i ) ) ;
-% 
-%    s=(B*sin(i*w*t))+(A*cos(i*w*t));
-%    suma=s+suma;
-%    
-% end
-% 
-% figure;plot(t,suma)
-% axis([0 2*T -1.1 1.1]);
-% xlabel('tiempo t');
-% ylabel('Amplitud de x(t)');
-% title('Señal x(t)');
-% 
-% se=audioplayer(suma,1/dt);
-% play(se)
+se=audioplayer(suma,1/dt);
+play(se)
 % 
 % spectrum
